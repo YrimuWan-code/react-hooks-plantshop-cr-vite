@@ -10,19 +10,19 @@ function NewPlantForm({ onAddPlant }) {
 
   const handleSubmit = function(event) {
     event.preventDefault();
-    onAddPlant(formData);
-    setFormData({
-      name: "",
-      image: "",
-      price: ""
-    });
+  
+  //match JSON.stringify
+  const payload = {
+    ...formData,
+    price: formData.price.toString() 
   };
+
   fetch("http://localhost:6001/plants", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(formData)
+    body: JSON.stringify(payload)
   })
   .then(function(response) {
     return response.json();
@@ -50,6 +50,6 @@ function NewPlantForm({ onAddPlant }) {
       </form>
     </div>
   );
-}
+}}
 
 export default NewPlantForm;
