@@ -17,6 +17,27 @@ function NewPlantForm({ onAddPlant }) {
       price: ""
     });
   };
+  fetchPlants("http://localhost:6001/plants", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(newPlant) {
+    onAddPlant(newPlant);
+    setFormData({
+      name: "",
+      image: "",
+      price: ""
+    });
+  })
+  .catch(function(error) {
+    console.error("Error adding plant:", error);
+  });
 
   return (
     <div className="new-plant-form">
