@@ -12,7 +12,7 @@ function PlantPage() {
 
   // useEffect to fetch the list of plants when the page loads.
   useEffect(function() {
-    fetchPlants("http://localhost:6001/plants")
+    fetch("http://localhost:6001/plants")
     .then(function(response) {
       return response.json();
     })

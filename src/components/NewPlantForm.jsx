@@ -1,4 +1,4 @@
-import React, useState} from "react";
+import React, {useState} from "react";
 
 function NewPlantForm({ onAddPlant }) {
   //State to hold the form data for the new plant.
@@ -17,7 +17,7 @@ function NewPlantForm({ onAddPlant }) {
       price: ""
     });
   };
-  fetchPlants("http://localhost:6001/plants", {
+  fetch("http://localhost:6001/plants", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

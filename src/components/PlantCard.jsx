@@ -2,7 +2,7 @@ import React, { useState }from "react";
 
 function PlantCard({ plant }) {
   //State to track whether the plant is in stock or not.
-  const [inStock, setInStock] = useState(plant.inStock);
+  const [inStock, setInStock] = useState(true); //Initialize inStock to true, meaning the plant is initially in stock.  
 
   const handleStockToggle = function() {
     setInStock(!inStock); //Toggle the inStock state.
